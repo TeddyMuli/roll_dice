@@ -12,6 +12,8 @@ if 'roll_count' not in st.session_state:
 
 def roll_dice():
     result = random.randint(1, 6)
+    st.session_state.rolls.append(result)
+    st.session_state.roll_count += 1
     return result
 
 st.title('🎲 Rolling Dice Game')
