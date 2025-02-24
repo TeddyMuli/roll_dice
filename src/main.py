@@ -5,6 +5,11 @@ import random
 import pandas as pd
 import plotly.express as px
 
+if 'rolls' not in st.session_state:
+    st.session_state.rolls = []
+if 'roll_count' not in st.session_state:
+    st.session_state.roll_count = 0
+
 def roll_dice():
     result = random.randint(1, 6)
     st.session_state.rolls.append(result)
@@ -43,9 +48,3 @@ if st.button('Reset'):
     st.session_state.roll_count = 0
     st.session_state.rolls = []
     st.experimental_rerun()
-
-if __name__ == '__main__':
-    if 'rolls' not in st.session_state:
-        st.session_state.rolls = []
-    if 'roll_count' not in st.session_state:
-        st.session_state.roll_count = 0
