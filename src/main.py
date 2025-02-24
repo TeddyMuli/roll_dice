@@ -25,18 +25,18 @@ if st.button('Roll Dice'):
 if st.session_state.roll_count > 0:
     roll_data = pd.DataFrame(st.session_state.rolls, columns=['Result'])
     stats = roll_data['Result'].value_counts().reset_index()
-    stats.columns = ['Number', 'Count']
-    stats = stats.sort_values('Number')
+    stats.columns = ['Dice Number', 'Count']
+    stats = stats.sort_values('Dice Number')
     stats['Percentage'] = (stats['Count'] / len(st.session_state.rolls) * 100).round(2)
 
     st.subheader('Roll Statistics')
-    st.dataframe(stats)
+    st.dataframe(stats, index=False)
 
     bar_chart = px.bar(stats,
-                       x='Number',
+                       x='Dice Number',
                        y='Count',
                        title='Distribution of Dice Rolls',
-                       labels={'Number': 'Dice Number', 'Count': 'Number of Rolls'},
+                       labels={'DiceNumber': 'Dice Number', 'Count': 'Number of Rolls'},
                        text=stats['Percentage'].apply(lambda x: f'{x}%'))
     
     bar_chart.update_traces(textposition='outside')
