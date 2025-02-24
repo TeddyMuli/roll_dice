@@ -30,7 +30,7 @@ if st.session_state.roll_count > 0:
     stats['Percentage'] = (stats['Count'] / len(st.session_state.rolls) * 100).round(2)
 
     st.subheader('Roll Statistics')
-    st.dataframe(stats, index=False)
+    st.dataframe(stats)
 
     bar_chart = px.bar(stats,
                        x='Dice Number',
