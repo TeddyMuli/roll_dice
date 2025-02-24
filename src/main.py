@@ -25,7 +25,7 @@ if st.button('Roll Dice'):
 if st.session_state.roll_count > 0:
     roll_data = pd.DataFrame(st.session_state.rolls, columns=['Result'])
     stats = roll_data['Result'].value_counts().reset_index()
-    stats.columns['Number', 'Count']
+    stats.columns = ['Number', 'Count']
     stats = stats.sort_values('Number')
     stats['Percentage'] = (stats['Count'] / len(st.session_state.rolls) * 100).round(2)
 
