@@ -1,4 +1,4 @@
-# Rolling Dice Game
+# 🎲Rolling Dice Game
 
 ## Requirements
 1. Latest version of python
