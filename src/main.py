@@ -44,3 +44,7 @@ if st.session_state.roll_count > 0:
 
     st.markdown(f'**Total Rolls** {st.session_state.roll_count}')
 
+if st.button('Reset'):
+    st.session_state.roll_count = 0
+    st.session_state.rolls = []
+    st.experimental_rerun()
